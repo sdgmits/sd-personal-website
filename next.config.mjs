@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true, // Required for static export
   },
+  basePath: process.env.NODE_ENV === 'production' ? '/sd-personal-website' : '',
   trailingSlash: true,
 };
 
