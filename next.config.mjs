@@ -4,7 +4,8 @@ const nextConfig = {
   images: {
     unoptimized: true, // Required for static export
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/sd-personal-website' : '',
+  // Only use basePath for GitHub Pages, not for Cloudflare
+  basePath: process.env.GITHUB_ACTIONS ? '/sd-personal-website' : '',
   trailingSlash: true,
 };
 
