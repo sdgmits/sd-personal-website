@@ -16,11 +16,11 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-50 dark:bg-dark-surface border-t border-gray-200 dark:border-dark-border">
+    <footer className="bg-dark-surface/50 border-t border-neon-cyan/20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-400">
               © {currentYear} {personalInfo.name}. All rights reserved.
             </p>
           </div>
@@ -34,7 +34,7 @@ export default function Footer() {
                   href={link.url}
                   target={link.name === "Email" ? "_self" : "_blank"}
                   rel={link.name === "Email" ? undefined : "noopener noreferrer"}
-                  className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  className="text-gray-400 hover:text-neon-cyan transition-all hover:scale-110"
                   aria-label={link.name}
                 >
                   <IconComponent size={24} />

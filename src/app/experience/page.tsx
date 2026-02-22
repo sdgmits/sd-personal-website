@@ -12,14 +12,14 @@ export default function ExperiencePage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">{pageContent.experience.title}</h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">{pageContent.experience.title}</h1>
+        <p className="text-lg text-gray-400 mb-12">
           {pageContent.experience.subtitle}
         </p>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-primary-200 dark:bg-primary-800"></div>
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-neon-cyan via-accent-purple to-accent-pink"></div>
 
           <div className="space-y-12">
             {experiences.map((experience, index) => (
@@ -35,39 +35,39 @@ export default function ExperiencePage() {
               >
                 {/* Content */}
                 <div className={index % 2 === 0 ? "md:text-right" : "md:col-start-2"}>
-                  <div className="bg-white dark:bg-dark-surface rounded-lg p-6 shadow-lg">
+                  <div className="neon-card rounded-xl p-6">
                     <div className="flex items-center justify-between mb-2">
-                      <h3 className="text-2xl font-bold">{experience.role}</h3>
+                      <h3 className="text-2xl font-bold text-neon-cyan">{experience.role}</h3>
                       {experience.companyUrl && (
                         <a
                           href={experience.companyUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-primary-600 hover:text-primary-700"
+                          className="text-neon-cyan hover:text-accent-pink transition-colors"
                           aria-label={`Visit ${experience.company} website`}
                         >
                           <ExternalLink size={20} />
                         </a>
                       )}
                     </div>
-                    <p className="text-lg text-primary-600 dark:text-primary-400 mb-1">
+                    <p className="text-lg text-accent-purple mb-1">
                       {experience.company}
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    <p className="text-sm text-gray-400 mb-2">
                       {experience.startDate} - {experience.endDate} • {experience.location}
                     </p>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    <p className="text-gray-300 mb-4">
                       {experience.description}
                     </p>
                     
-                    <h4 className="font-semibold mb-2">Key Achievements:</h4>
+                    <h4 className="font-semibold mb-2 text-neon-cyan">Key Achievements:</h4>
                     <ul className="space-y-2 mb-4">
                       {experience.achievements.map((achievement, idx) => (
                         <li
                           key={idx}
-                          className="text-gray-600 dark:text-gray-400 flex items-start"
+                          className="text-gray-400 flex items-start"
                         >
-                          <span className="text-primary-600 mr-2">▹</span>
+                          <span className="text-neon-cyan mr-2">▹</span>
                           {achievement}
                         </li>
                       ))}
@@ -77,7 +77,7 @@ export default function ExperiencePage() {
                       {experience.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 text-xs bg-primary-100 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full"
+                          className="px-3 py-1 text-xs bg-accent-purple/20 text-accent-purple border border-accent-purple/30 rounded-full"
                         >
                           {tech}
                         </span>
@@ -87,7 +87,7 @@ export default function ExperiencePage() {
                 </div>
 
                 {/* Timeline dot */}
-                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary-600 rounded-full border-4 border-white dark:border-dark-bg"></div>
+                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-neon-cyan rounded-full border-4 border-dark-bg shadow-lg shadow-neon-cyan/50"></div>
               </motion.div>
             ))}
           </div>

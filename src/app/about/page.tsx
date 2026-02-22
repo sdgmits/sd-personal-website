@@ -13,32 +13,32 @@ export default function AboutPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold mb-8">{pageContent.about.title}</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-8 gradient-text">{pageContent.about.title}</h1>
         
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           <div>
-            <h2 className="text-2xl font-semibold mb-4">{pageContent.about.background.heading}</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-neon-cyan">{pageContent.about.background.heading}</h2>
             {pageContent.about.background.paragraphs.map((paragraph, index) => (
-              <p key={index} className="text-lg text-gray-600 dark:text-gray-400 mb-4">
+              <p key={index} className="text-lg text-gray-400 mb-4">
                 {paragraph}
               </p>
             ))}
             <a
               href={personalInfo.resumeUrl}
               download
-              className="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors mt-4"
+              className="neon-button inline-flex items-center px-6 py-3 bg-gradient-to-r from-neon-cyan to-accent-purple text-dark-bg rounded-full font-semibold transition-all shadow-lg shadow-neon-cyan/30 hover:shadow-neon-pink/50 mt-4"
             >
-              Download Resume
-              <Download className="ml-2" size={20} />
+              <span className="relative z-10">Download Resume</span>
+              <Download className="ml-2 relative z-10" size={20} />
             </a>
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold mb-4">{pageContent.about.whatIDo.heading}</h2>
-            <ul className="space-y-3 text-lg text-gray-600 dark:text-gray-400">
+            <h2 className="text-2xl font-semibold mb-4 text-neon-cyan">{pageContent.about.whatIDo.heading}</h2>
+            <ul className="space-y-3 text-lg text-gray-400">
               {pageContent.about.whatIDo.items.map((item, index) => (
                 <li key={index} className="flex items-start">
-                  <span className="text-primary-600 mr-2">▹</span>
+                  <span className="text-neon-cyan mr-2">▹</span>
                   {item}
                 </li>
               ))}
@@ -47,7 +47,7 @@ export default function AboutPage() {
         </div>
 
         <div>
-          <h2 className="text-3xl font-bold mb-8">{pageContent.about.skillsHeading}</h2>
+          <h2 className="text-3xl font-bold mb-8 gradient-text">{pageContent.about.skillsHeading}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skills.map((skillCategory, index) => (
               <motion.div
@@ -55,16 +55,16 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gray-50 dark:bg-dark-surface rounded-lg p-6"
+                className="neon-card rounded-xl p-6"
               >
-                <h3 className="text-xl font-semibold mb-4 text-primary-600 dark:text-primary-400">
+                <h3 className="text-xl font-semibold mb-4 text-neon-cyan">
                   {skillCategory.category}
                 </h3>
                 <ul className="space-y-2">
                   {skillCategory.items.map((skill) => (
                     <li
                       key={skill}
-                      className="text-gray-700 dark:text-gray-300"
+                      className="text-gray-300"
                     >
                       {skill}
                     </li>
@@ -77,7 +77,7 @@ export default function AboutPage() {
 
         {/* Certifications Section */}
         <div className="mt-16">
-          <h2 className="text-3xl font-bold mb-8">{pageContent.about.certificationsHeading}</h2>
+          <h2 className="text-3xl font-bold mb-8 gradient-text">{pageContent.about.certificationsHeading}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certifications.map((cert, index) => (
               <motion.div
@@ -86,7 +86,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white dark:bg-dark-bg rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-200 dark:border-dark-border"
+                className="neon-card rounded-xl p-6"
               >
                 <div className="flex flex-col items-center text-center">
                   {cert.logo && (
@@ -99,13 +99,13 @@ export default function AboutPage() {
                       />
                     </div>
                   )}
-                  <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-gray-100">
+                  <h3 className="text-lg font-bold mb-2 text-gray-100">
                     {cert.name}
                   </h3>
-                  <p className="text-sm text-primary-600 dark:text-primary-400 mb-1">
+                  <p className="text-sm text-neon-cyan mb-1">
                     {cert.issuer}
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                  <p className="text-sm text-gray-400 mb-4">
                     {cert.date}
                   </p>
                   {cert.url && (
@@ -113,7 +113,7 @@ export default function AboutPage() {
                       href={cert.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors"
+                      className="inline-flex items-center text-neon-cyan hover:text-accent-pink transition-colors"
                     >
                       View Credential
                       <ExternalLink className="ml-1" size={16} />

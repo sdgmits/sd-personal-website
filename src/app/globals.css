@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  --bg-primary: #0a0e27;
+  --bg-secondary: #1a1f3a;
+  --accent-cyan: #00fff5;
+  --accent-pink: #ff006e;
+  --accent-purple: #8b5cf6;
+  --accent-yellow: #ffd60a;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
 }
 
 @layer base {
@@ -12,12 +22,132 @@
   }
   
   body {
-    @apply font-sans;
+    @apply font-sans bg-dark-bg text-gray-100;
+    overflow-x: hidden;
+  }
+  
+  /* Animated gradient background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(0, 255, 245, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 50% 10%, rgba(255, 0, 110, 0.1) 0%, transparent 50%);
+    z-index: -1;
+    animation: gradientShift 15s ease infinite;
+    pointer-events: none;
+  }
+}
+
+@layer components {
+  /* Glitch text effect */
+  .glitch-text {
+    position: relative;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glitch 3s infinite;
+  }
+  
+  /* Neon glow button */
+  .neon-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .neon-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-pink), var(--accent-yellow));
+    transition: left 0.3s ease;
+    z-index: -1;
+  }
+  
+  .neon-button:hover::before {
+    left: 0;
+  }
+  
+  .neon-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+  }
+  
+  /* Neon card */
+  .neon-card {
+    background: rgba(26, 31, 58, 0.6);
+    border: 1px solid rgba(0, 255, 245, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .neon-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 40px rgba(0, 255, 245, 0.2);
+  }
+  
+  /* Section title underline */
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+    border-radius: 2px;
+  }
+  
+  /* Nav link hover effect */
+  .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-cyan);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Gradient text utilities */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .gradient-text-alt {
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-yellow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

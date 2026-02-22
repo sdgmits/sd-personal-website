@@ -48,8 +48,8 @@ export default function ContactPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">{pageContent.contact.title}</h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">{pageContent.contact.title}</h1>
+        <p className="text-lg text-gray-400 mb-12">
           {pageContent.contact.subtitle}
         </p>
 
@@ -58,7 +58,7 @@ export default function ContactPage() {
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                <label htmlFor="name" className="block text-sm font-medium mb-2 text-neon-cyan">
                   {pageContent.contact.form.nameLabel}
                 </label>
                 <input
@@ -68,12 +68,12 @@ export default function ContactPage() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-dark-border rounded-lg bg-white dark:bg-dark-surface focus:ring-2 focus:ring-primary-600 focus:border-transparent outline-none transition"
+                  className="w-full px-4 py-2 border border-neon-cyan/30 rounded-lg bg-dark-surface/50 text-gray-100 focus:ring-2 focus:ring-neon-cyan focus:border-transparent outline-none transition"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                <label htmlFor="email" className="block text-sm font-medium mb-2 text-neon-cyan">
                   {pageContent.contact.form.emailLabel}
                 </label>
                 <input
@@ -83,12 +83,12 @@ export default function ContactPage() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-dark-border rounded-lg bg-white dark:bg-dark-surface focus:ring-2 focus:ring-primary-600 focus:border-transparent outline-none transition"
+                  className="w-full px-4 py-2 border border-neon-cyan/30 rounded-lg bg-dark-surface/50 text-gray-100 focus:ring-2 focus:ring-neon-cyan focus:border-transparent outline-none transition"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label htmlFor="message" className="block text-sm font-medium mb-2 text-neon-cyan">
                   {pageContent.contact.form.messageLabel}
                 </label>
                 <textarea
@@ -98,21 +98,21 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-dark-border rounded-lg bg-white dark:bg-dark-surface focus:ring-2 focus:ring-primary-600 focus:border-transparent outline-none transition resize-none"
+                  className="w-full px-4 py-2 border border-neon-cyan/30 rounded-lg bg-dark-surface/50 text-gray-100 focus:ring-2 focus:ring-neon-cyan focus:border-transparent outline-none transition resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 disabled:bg-gray-400 text-white rounded-lg transition-colors"
+                className="neon-button inline-flex items-center px-6 py-3 bg-gradient-to-r from-neon-cyan to-accent-purple text-dark-bg rounded-full font-semibold transition-all shadow-lg shadow-neon-cyan/30 hover:shadow-neon-pink/50 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {status === "sending" ? pageContent.contact.form.sendingButton : pageContent.contact.form.submitButton}
-                <Send className="ml-2" size={20} />
+                <span className="relative z-10">{status === "sending" ? pageContent.contact.form.sendingButton : pageContent.contact.form.submitButton}</span>
+                <Send className="ml-2 relative z-10" size={20} />
               </button>
 
               {status === "success" && (
-                <p className="text-green-600 dark:text-green-400">
+                <p className="text-neon-cyan">
                   {pageContent.contact.form.successMessage}
                 </p>
               )}
@@ -121,7 +121,7 @@ export default function ContactPage() {
 
           {/* Contact Info */}
           <div>
-            <h2 className="text-2xl font-semibold mb-6">{pageContent.contact.info.heading}</h2>
+            <h2 className="text-2xl font-semibold mb-6 text-neon-cyan">{pageContent.contact.info.heading}</h2>
             
             <div className="space-y-6 mb-8">
               {socialLinks.map((link) => {
@@ -132,12 +132,12 @@ export default function ContactPage() {
                 
                 return (
                   <div key={link.name} className="flex items-center">
-                    <IconComponent className="text-primary-600 mr-4" size={24} />
+                    <IconComponent className="text-neon-cyan mr-4" size={24} />
                     <a
                       href={link.url}
                       target={link.name === "Email" ? "_self" : "_blank"}
                       rel={link.name === "Email" ? undefined : "noopener noreferrer"}
-                      className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
+                      className="text-gray-300 hover:text-neon-cyan transition-colors"
                     >
                       {displayText}
                     </a>
@@ -146,10 +146,10 @@ export default function ContactPage() {
               })}
             </div>
 
-            <div className="bg-gray-50 dark:bg-dark-surface rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-4">{pageContent.contact.info.connectHeading}</h3>
+            <div className="neon-card rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-4 text-neon-cyan">{pageContent.contact.info.connectHeading}</h3>
               {pageContent.contact.info.connectText.map((text, index) => (
-                <p key={index} className="text-gray-600 dark:text-gray-400 mb-4">
+                <p key={index} className="text-gray-400 mb-4">
                   {text}
                 </p>
               ))}

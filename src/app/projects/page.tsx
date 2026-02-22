@@ -18,8 +18,8 @@ export default function ProjectsPage() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{pageContent.projects.title}</h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">{pageContent.projects.title}</h1>
+          <p className="text-lg text-gray-400 mb-12">
             {pageContent.projects.emptyMessage}
           </p>
         </motion.div>
@@ -39,8 +39,8 @@ export default function ProjectsPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">{pageContent.projects.title}</h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">{pageContent.projects.title}</h1>
+        <p className="text-lg text-gray-400 mb-12">
           {pageContent.projects.subtitle}
         </p>
 
@@ -50,10 +50,10 @@ export default function ProjectsPage() {
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-6 py-2 rounded-lg transition-colors ${
+              className={`px-6 py-2 rounded-full transition-all font-semibold ${
                 filter === category
-                  ? "bg-primary-600 text-white"
-                  : "bg-gray-100 dark:bg-dark-surface text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-dark-border"
+                  ? "bg-gradient-to-r from-neon-cyan to-accent-purple text-dark-bg shadow-lg shadow-neon-cyan/30"
+                  : "bg-dark-surface text-gray-300 hover:text-neon-cyan border border-neon-cyan/20 hover:border-neon-cyan/50"
               }`}
             >
               {category}
@@ -69,17 +69,17 @@ export default function ProjectsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white dark:bg-dark-surface rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow"
+              className="neon-card rounded-xl p-6"
             >
               <div className="flex items-start justify-between mb-4">
-                <h3 className="text-xl font-bold">{project.title}</h3>
+                <h3 className="text-xl font-bold text-neon-cyan">{project.title}</h3>
                 <div className="flex gap-3">
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                      className="text-gray-400 hover:text-neon-cyan transition-colors"
                       aria-label={`${project.title} GitHub repository`}
                     >
                       <Github size={20} />
@@ -90,7 +90,7 @@ export default function ProjectsPage() {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                      className="text-gray-400 hover:text-neon-cyan transition-colors"
                       aria-label={`${project.title} live demo`}
                     >
                       <ExternalLink size={20} />
@@ -99,7 +99,7 @@ export default function ProjectsPage() {
                 </div>
               </div>
 
-              <p className="text-gray-600 dark:text-gray-400 mb-4">
+              <p className="text-gray-400 mb-4">
                 {project.longDescription || project.description}
               </p>
 
@@ -107,7 +107,7 @@ export default function ProjectsPage() {
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 text-xs bg-primary-100 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full"
+                    className="px-3 py-1 text-xs bg-accent-purple/20 text-accent-purple border border-accent-purple/30 rounded-full"
                   >
                     {tech}
                   </span>
@@ -119,7 +119,7 @@ export default function ProjectsPage() {
 
         {filteredProjects.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-400">
               No projects found in this category.
             </p>
           </div>

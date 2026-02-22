@@ -16,11 +16,11 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md border-b border-gray-200 dark:border-dark-border">
+    <header className="sticky top-0 z-50 bg-dark-bg/80 backdrop-blur-md border-b border-neon-cyan/20">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold text-primary-600 dark:text-primary-400">
+            <Link href="/" className="text-2xl font-bold gradient-text hover:scale-110 transition-transform">
               SD
             </Link>
           </div>
@@ -32,7 +32,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  className="nav-link text-gray-400 hover:text-neon-cyan transition-colors font-medium"
                 >
                   {item.name}
                 </Link>
@@ -44,7 +44,7 @@ export default function Header() {
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-700 dark:text-gray-300"
+              className="text-gray-300 hover:text-neon-cyan transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -54,14 +54,14 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4">
+          <div className="md:hidden py-4 border-t border-neon-cyan/20">
             <div className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  className="text-gray-400 hover:text-neon-cyan transition-colors font-medium"
                 >
                   {item.name}
                 </Link>
