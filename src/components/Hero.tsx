@@ -36,7 +36,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-6 font-mono">
-            <span className="syntax-comment">//</span> {personalInfo.title}
+            <span className="syntax-comment">{'//'}</span> {personalInfo.title}
           </p>
           
           <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-10">
