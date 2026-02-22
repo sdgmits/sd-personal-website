@@ -5,7 +5,7 @@ export const personalInfo = {
   title: "Dynamics 365 and Copilot Solution Architect | Senior Software Engineer",
   email: "your.email@example.com",
   location: "United States",
-  bio: "Solution Architect specializing in Microsoft Dynamics 365, Power Platform, and AI-powered Copilot solutions. Passionate about transforming business processes through intelligent automation and enterprise solutions.",
+  bio: "[Description: 'Solution Architect specializing in Microsoft Dynamics 365, Power Platform, and AI-powered Copilot solutions. Passionate about transforming business processes through intelligent automation and enterprise solutions.']",
   resumeUrl: "https://www.linkedin.com/in/sachindevgupta/",
 };
 
@@ -69,11 +69,7 @@ export const pageContent = {
 };
 
 export const socialLinks: SocialLink[] = [
-  {
-    name: "Email",
-    url: "mailto:your.email@example.com",
-    icon: "mail",
-  },
+
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/sachindevgupta",
@@ -92,18 +88,18 @@ export const socialLinks: SocialLink[] = [
   {
     name: "Microsoft Certifications",
     url: "https://learn.microsoft.com/en-us/users/sdgmits/",
-    icon: "graduation-cap",
+    icon: "microsoft-learn",
   },
 ];
 
 export const skills: Skill[] = [
   {
     category: "Microsoft Dynamics 365",
-    items: ["Dynamics 365 CE", "Customer Service", "Sales", "Field Service", "Power Platform", "Customer Voice"],
+    items: ["Dynamics 365 CE", "Customer Service", "Sales Optimization", "Field Service", "Power Platform", "Customer Voice"],
   },
   {
     category: "AI & Copilot",
-    items: ["Microsoft Copilot", "Copilot Studio", "Azure AI", "AI Builder", "Azure OpenAI"],
+    items: ["Microsoft Copilot", "Copilot Studio", "Azure AI", "AI Builder", "Azure OpenAI", "AWS"],
   },
   {
     category: "Development",
@@ -115,7 +111,7 @@ export const skills: Skill[] = [
   },
   {
     category: "DevOps & Tools",
-    items: ["Azure DevOps", "CI/CD Pipelines", "Git", "PowerShell", "XRM Tooling", "Solution Packager"],
+    items: ["Azure DevOps", "CI/CD Pipelines", "Git", "PowerShell", "XRM Tooling", "Salesforce"],
   },
 ];
 

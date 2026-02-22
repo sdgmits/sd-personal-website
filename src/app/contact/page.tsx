@@ -130,8 +130,8 @@ export default function ContactPage() {
               {socialLinks.map((link) => {
                 const IconComponent = iconMap[link.icon.toLowerCase()] || Mail;
                 const displayText = link.name === "Email" 
-                  ? personalInfo.email 
-                  : `${link.name} Profile`;
+                  ? "Send me an email" 
+                  : `${link.name}`;
                 
                 return (
                   <div key={link.name} className="flex items-center">

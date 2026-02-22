@@ -20,28 +20,36 @@ export default function Hero() {
             <span className="syntax-type">Microsoft.Dynamics365</span>
             <span className="syntax-operator">;</span>
           </div>
+             <div className="mb-6 font-mono text-sm md:text-base text-gray-400">
+            <span className="syntax-keyword">using</span>{" "}
+            <span className="syntax-type">Azure AI</span>
+            <span className="syntax-operator">;</span>
+          </div>
+         <p className="text-xl md:text-2xl text-gray-300 mb-6 font-mono">
+            <span className="syntax-comment">{'/// '}</span>{personalInfo.title}
+          
+          </p>
+            <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-10">
+            {personalInfo.bio}
+          </p>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight">
             <div className="text-gray-400 font-mono text-xl md:text-2xl mb-3">
               <span className="syntax-keyword">var</span>{" "}
               <span className="syntax-variable">architect</span>{" "}
               <span className="syntax-operator">=</span>{" "}
-              <span className="syntax-keyword">new</span>
+              <span className="syntax-keyword">new architect(</span>
             </div>
             <span className="glitch-text">
               {personalInfo.name}
             </span>
             <span className="syntax-operator font-mono text-3xl md:text-4xl">( )</span>
-            <span className="syntax-operator font-mono text-2xl md:text-3xl">;</span>
+            <span className="syntax-operator font-mono text-2xl md:text-3xl">);</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-6 font-mono">
-            <span className="syntax-comment">{'// '}</span>{personalInfo.title}
-          </p>
+ 
           
-          <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-10">
-            {personalInfo.bio}
-          </p>
+        
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
