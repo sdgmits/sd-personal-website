@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true, // Required for static export
   },
-  basePath: '', // Add '/repo-name' if not using username.github.io
+  basePath: '/sd-personal-website',
   trailingSlash: true,
 };
 
