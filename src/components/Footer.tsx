@@ -20,8 +20,10 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-gray-400">
-              © {currentYear} {personalInfo.name}. All rights reserved.
+            <p className="text-gray-400 font-mono text-sm">
+              <span className="syntax-comment">// </span>
+              © {currentYear} {personalInfo.name}
+              <span className="syntax-operator ml-2">.</span><span className="syntax-function">Build</span><span className="syntax-operator">()</span>
             </p>
           </div>
 
@@ -34,7 +36,7 @@ export default function Footer() {
                   href={link.url}
                   target={link.name === "Email" ? "_self" : "_blank"}
                   rel={link.name === "Email" ? undefined : "noopener noreferrer"}
-                  className="text-gray-400 hover:text-neon-cyan transition-all hover:scale-110"
+                  className="text-gray-400 hover:text-neon-cyan transition-colors"
                   aria-label={link.name}
                 >
                   <IconComponent size={24} />

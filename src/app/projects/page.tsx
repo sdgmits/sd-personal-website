@@ -15,7 +15,7 @@ export default function ProjectsPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="text-center"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">{pageContent.projects.title}</h1>
@@ -37,8 +37,11 @@ export default function ProjectsPage() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
       >
+        <div className="font-mono text-sm text-gray-500 mb-3">
+          <span className="syntax-keyword">class</span> <span className="syntax-class">Projects</span> <span className="syntax-operator">:</span> <span className="syntax-type">IPortfolio</span> {'{'}
+        </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">{pageContent.projects.title}</h1>
         <p className="text-lg text-gray-400 mb-12">
           {pageContent.projects.subtitle}
@@ -50,10 +53,10 @@ export default function ProjectsPage() {
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-6 py-2 rounded-full transition-all font-semibold ${
+              className={`px-5 py-2 rounded-full transition-all font-medium ${
                 filter === category
-                  ? "bg-gradient-to-r from-neon-cyan to-accent-purple text-dark-bg shadow-lg shadow-neon-cyan/30"
-                  : "bg-dark-surface text-gray-300 hover:text-neon-cyan border border-neon-cyan/20 hover:border-neon-cyan/50"
+                  ? "bg-gradient-to-r from-neon-cyan to-accent-purple text-dark-bg shadow-md"
+                  : "bg-dark-surface text-gray-300 hover:text-neon-cyan border border-neon-cyan/20 hover:border-neon-cyan/40"
               }`}
             >
               {category}
@@ -68,7 +71,7 @@ export default function ProjectsPage() {
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
               className="neon-card rounded-xl p-6"
             >
               <div className="flex items-start justify-between mb-4">

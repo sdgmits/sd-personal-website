@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { personalInfo, skills, certifications, pageContent } from "@/utils/data";
 import { Download, ExternalLink } from "lucide-react";
-import Image from "next/image";
 
 export default function AboutPage() {
   return (
@@ -11,8 +10,11 @@ export default function AboutPage() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
       >
+        <div className="font-mono text-sm text-gray-500 mb-3">
+          <span className="syntax-keyword">namespace</span> <span className="syntax-type">Portfolio.About</span> {'{'}
+        </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-8 gradient-text">{pageContent.about.title}</h1>
         
         <div className="grid md:grid-cols-2 gap-12 mb-16">
@@ -26,10 +28,10 @@ export default function AboutPage() {
             <a
               href={personalInfo.resumeUrl}
               download
-              className="neon-button inline-flex items-center px-6 py-3 bg-gradient-to-r from-neon-cyan to-accent-purple text-dark-bg rounded-full font-semibold transition-all shadow-lg shadow-neon-cyan/30 hover:shadow-neon-pink/50 mt-4"
+              className="neon-button inline-flex items-center px-6 py-3 bg-gradient-to-r from-neon-cyan to-accent-purple text-dark-bg rounded-full font-semibold shadow-md hover:shadow-lg mt-4"
             >
-              <span className="relative z-10">Download Resume</span>
-              <Download className="ml-2 relative z-10" size={20} />
+              <span>Download Resume</span>
+              <Download className="ml-2" size={20} />
             </a>
           </div>
 
@@ -54,7 +56,7 @@ export default function AboutPage() {
                 key={skillCategory.category}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
                 className="neon-card rounded-xl p-6"
               >
                 <h3 className="text-xl font-semibold mb-4 text-neon-cyan">
@@ -84,18 +86,17 @@ export default function AboutPage() {
                 key={cert.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
                 viewport={{ once: true }}
                 className="neon-card rounded-xl p-6"
               >
                 <div className="flex flex-col items-center text-center">
                   {cert.logo && (
-                    <div className="mb-4 w-24 h-24 relative">
-                      <Image
+                    <div className="mb-4 w-24 h-24 flex items-center justify-center">
+                      <img
                         src={cert.logo}
                         alt={`${cert.name} logo`}
-                        fill
-                        className="object-contain"
+                        className="max-w-full max-h-full object-contain"
                       />
                     </div>
                   )}

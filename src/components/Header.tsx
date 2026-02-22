@@ -20,8 +20,10 @@ export default function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
-            <Link href="/" className="text-2xl font-bold gradient-text hover:scale-110 transition-transform">
-              SD
+            <Link href="/" className="flex items-baseline gap-0 hover:opacity-80 transition-opacity">
+              <span className="text-sm font-mono syntax-operator leading-none">&lt;</span>
+              <span className="text-2xl font-bold syntax-class leading-none">SD</span>
+              <span className="text-sm font-mono syntax-operator leading-none">/&gt;</span>
             </Link>
           </div>
 

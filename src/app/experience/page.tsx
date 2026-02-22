@@ -10,8 +10,11 @@ export default function ExperiencePage() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
       >
+        <div className="font-mono text-sm text-gray-500 mb-3">
+          <span className="syntax-keyword">public</span> <span className="syntax-keyword">interface</span> <span className="syntax-class">IExperience</span> {'{'}
+        </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">{pageContent.experience.title}</h1>
         <p className="text-lg text-gray-400 mb-12">
           {pageContent.experience.subtitle}
@@ -19,7 +22,7 @@ export default function ExperiencePage() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-neon-cyan via-accent-purple to-accent-pink"></div>
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-neon-cyan/40 via-accent-purple/30 to-transparent"></div>
 
           <div className="space-y-12">
             {experiences.map((experience, index) => (
@@ -27,7 +30,7 @@ export default function ExperiencePage() {
                 key={experience.id}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.4 }}
                 viewport={{ once: true }}
                 className={`relative grid md:grid-cols-2 gap-8 items-center ${
                   index % 2 === 0 ? "" : "md:flex-row-reverse"
@@ -87,7 +90,7 @@ export default function ExperiencePage() {
                 </div>
 
                 {/* Timeline dot */}
-                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-neon-cyan rounded-full border-4 border-dark-bg shadow-lg shadow-neon-cyan/50"></div>
+                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-neon-cyan rounded-full border-2 border-dark-bg"></div>
               </motion.div>
             ))}
           </div>

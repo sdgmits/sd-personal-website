@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,9 +6,10 @@
 
 :root {
   --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-code: 'JetBrains Mono', 'Courier New', monospace;
   --bg-primary: #0a0e27;
   --bg-secondary: #1a1f3a;
-  --accent-cyan: #00fff5;
+  --accent-cyan: #00e8dd;
   --accent-pink: #ff006e;
   --accent-purple: #8b5cf6;
   --accent-yellow: #ffd60a;
@@ -22,11 +23,13 @@
   }
   
   body {
-    @apply font-sans bg-dark-bg text-gray-100;
+    @apply font-mono bg-dark-bg text-gray-100;
     overflow-x: hidden;
+    font-size: 0.9rem;
+    letter-spacing: -0.01em;
   }
   
-  /* Animated gradient background */
+  /* Subtle gradient background */
   body::before {
     content: '';
     position: fixed;
@@ -35,84 +38,64 @@
     width: 100%;
     height: 100%;
     background: 
-      radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(0, 255, 245, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 50% 10%, rgba(255, 0, 110, 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(0, 255, 245, 0.04) 0%, transparent 50%);
     z-index: -1;
-    animation: gradientShift 15s ease infinite;
     pointer-events: none;
   }
 }
 
 @layer components {
-  /* Glitch text effect */
+  /* Subtle gradient text */
   .glitch-text {
     position: relative;
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
+    background: linear-gradient(120deg, var(--accent-cyan), var(--accent-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: glitch 3s infinite;
   }
   
-  /* Neon glow button */
+  /* Simple button */
   .neon-button {
     position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-  
-  .neon-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--accent-pink), var(--accent-yellow));
-    transition: left 0.3s ease;
-    z-index: -1;
-  }
-  
-  .neon-button:hover::before {
-    left: 0;
+    transition: all 0.2s ease;
   }
   
   .neon-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 30px rgba(255, 0, 110, 0.5);
+    transform: translateY(-2px);
+    opacity: 0.9;
   }
   
-  /* Neon card */
+  /* Card with subtle effects */
   .neon-card {
-    background: rgba(26, 31, 58, 0.6);
-    border: 1px solid rgba(0, 255, 245, 0.2);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    background: rgba(26, 31, 58, 0.5);
+    border: 1px solid rgba(0, 255, 245, 0.15);
+    backdrop-filter: blur(5px);
+    transition: all 0.2s ease;
   }
   
   .neon-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-cyan);
-    box-shadow: 0 10px 40px rgba(0, 255, 245, 0.2);
+    transform: translateY(-4px);
+    border-color: rgba(0, 255, 245, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 255, 245, 0.1);
   }
   
   /* Section title underline */
   .section-title::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -8px;
     left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), transparent);
     border-radius: 2px;
   }
   
   /* Nav link hover effect */
   .nav-link {
     position: relative;
-    transition: all 0.3s ease;
+    transition: color 0.2s ease;
   }
   
   .nav-link::after {
@@ -121,9 +104,9 @@
     bottom: -5px;
     left: 0;
     width: 0;
-    height: 2px;
+    height: 1px;
     background: var(--accent-cyan);
-    transition: width 0.3s ease;
+    transition: width 0.2s ease;
   }
   
   .nav-link:hover::after {
@@ -149,5 +132,51 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  /* Syntax highlighting utilities - Cursor IDE style */
+  .syntax-keyword {
+    color: #C586C0;
+    font-weight: 500;
+  }
+  
+  .syntax-function {
+    color: #DCDCAA;
+    font-weight: 500;
+  }
+  
+  .syntax-class {
+    color: #4EC9B0;
+    font-weight: 600;
+  }
+  
+  .syntax-variable {
+    color: #9CDCFE;
+  }
+  
+  .syntax-string {
+    color: #CE9178;
+  }
+  
+  .syntax-number {
+    color: #B5CEA8;
+  }
+  
+  .syntax-comment {
+    color: #6A9955;
+    font-style: italic;
+  }
+  
+  .syntax-operator {
+    color: #D4D4D4;
+  }
+  
+  .syntax-type {
+    color: #4EC9B0;
+    font-weight: 500;
+  }
+  
+  .syntax-property {
+    color: #9CDCFE;
   }
 }

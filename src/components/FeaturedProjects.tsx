@@ -17,6 +17,9 @@ export default function FeaturedProjects() {
     <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
+          <div className="font-mono text-sm text-gray-500 mb-4">
+            <span className="syntax-keyword">public</span> <span className="syntax-type">List</span>&lt;<span className="syntax-class">Project</span>&gt; <span className="syntax-property">Featured</span> {'{'}
+          </div>
           <h2 className="text-4xl font-bold mb-4 relative inline-block section-title gradient-text">
             {pageContent.projects.featured.heading}
           </h2>
@@ -31,7 +34,7 @@ export default function FeaturedProjects() {
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
               viewport={{ once: true }}
               className="neon-card rounded-xl p-6"
             >
@@ -82,11 +85,15 @@ export default function FeaturedProjects() {
         <div className="text-center">
           <Link
             href="/projects"
-            className="neon-button inline-flex items-center px-6 py-3 bg-gradient-to-r from-neon-cyan to-accent-purple text-dark-bg rounded-full font-semibold transition-all shadow-lg shadow-neon-cyan/30 hover:shadow-neon-pink/50"
+            className="neon-button inline-flex items-center px-6 py-3 bg-gradient-to-r from-neon-cyan to-accent-purple text-dark-bg rounded-full font-semibold shadow-md hover:shadow-lg"
           >
-            <span className="relative z-10">View All Projects</span>
-            <ArrowRight className="ml-2 relative z-10" size={20} />
+            <span>View All Projects</span>
+            <ArrowRight className="ml-2" size={20} />
           </Link>
+        </div>
+        
+        <div className="font-mono text-sm text-gray-500 text-center mt-8">
+          {'}'}
         </div>
       </div>
     </section>

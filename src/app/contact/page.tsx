@@ -46,8 +46,11 @@ export default function ContactPage() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
       >
+        <div className="font-mono text-sm text-gray-500 mb-3">
+          <span className="syntax-keyword">async</span> <span className="syntax-type">Task</span>&lt;<span className="syntax-class">Response</span>&gt; <span className="syntax-function">Contact</span><span className="syntax-operator">()</span> {'{'}
+        </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">{pageContent.contact.title}</h1>
         <p className="text-lg text-gray-400 mb-12">
           {pageContent.contact.subtitle}
@@ -105,10 +108,10 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="neon-button inline-flex items-center px-6 py-3 bg-gradient-to-r from-neon-cyan to-accent-purple text-dark-bg rounded-full font-semibold transition-all shadow-lg shadow-neon-cyan/30 hover:shadow-neon-pink/50 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="neon-button inline-flex items-center px-6 py-3 bg-gradient-to-r from-neon-cyan to-accent-purple text-dark-bg rounded-full font-semibold shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span className="relative z-10">{status === "sending" ? pageContent.contact.form.sendingButton : pageContent.contact.form.submitButton}</span>
-                <Send className="ml-2 relative z-10" size={20} />
+                <span>{status === "sending" ? pageContent.contact.form.sendingButton : pageContent.contact.form.submitButton}</span>
+                <Send className="ml-2" size={20} />
               </button>
 
               {status === "success" && (
