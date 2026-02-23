@@ -16,7 +16,7 @@ export const pageContent = {
       heading: "Background",
       paragraphs: [
         "I'm a seasoned Dynamics 365 Solution Architect with extensive expertise in Microsoft Dynamics 365, Power Platform, and AI-driven solutions. I specialize in designing and implementing enterprise-grade CRM solutions that drive digital transformation.",
-        "My journey in technology has been focused on bridging business requirements with cutting-edge Microsoft technologies. I'm passionate about leveraging Microsoft Copilot, Azure AI, and intelligent automation to create solutions that not only meet today's challenges but also prepare organizations for tomorrow's opportunities.",
+        "My journey in technology has been focused on bridging business requirements with cutting-edge Microsoft technologies. I'm passionate about leveraging Microsoft Dataverse, Copilot, Azure AI, and intelligent automation to create solutions that not only meet today's challenges but also prepare organizations for tomorrow's opportunities.",
       ],
     },
     whatIDo: {
