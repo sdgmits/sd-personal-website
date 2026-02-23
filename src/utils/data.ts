@@ -15,7 +15,7 @@ export const pageContent = {
     background: {
       heading: "Background",
       paragraphs: [
-        "I'm a seasoned Solution Architect with extensive expertise in Microsoft Dynamics 365, Power Platform, and AI-driven solutions. With over a decade of experience at HCL America Inc., I specialize in designing and implementing enterprise-grade CRM solutions that drive digital transformation.",
+        "I'm a seasoned Dynamics 365 Solution Architect with extensive expertise in Microsoft Dynamics 365, Power Platform, and AI-driven solutions. With over a decade of experience at HCL America Inc., I specialize in designing and implementing enterprise-grade CRM solutions that drive digital transformation.",
         "My journey in technology has been focused on bridging business requirements with cutting-edge Microsoft technologies. I'm passionate about leveraging Microsoft Copilot, Azure AI, and intelligent automation to create solutions that not only meet today's challenges but also prepare organizations for tomorrow's opportunities.",
       ],
     },
